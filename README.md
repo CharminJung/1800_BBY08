@@ -5,10 +5,14 @@
 * [Contents](#content)
 
 ## General Info
-* Hello, my name is Charmin Jung and this is my group project
+
 	
 This browser based web application to ...
 * Hi my name is Himanshu. I'm excited about this project because I want to learn.	
+* Hello, my name is Charmin Jung and this is my group project
+* My name is JasonJoo. I'm excited about this project because its my first project
+
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
