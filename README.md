@@ -5,8 +5,13 @@
 * [Contents](#content)
 
 ## General Info
+<<<<<<< HEAD
 Hello, my name is Charmin Jung and this is my group project
 	
+=======
+This browser based web application to ...
+	*My name is JasonJoo. I'm excited about this project because its my first project
+>>>>>>> bff1b28 (Added one line intro to README file for 1800_BBY08)
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
