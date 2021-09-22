@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+Hello, my name is Charmin Jung and this is my group project
 	
 ## Technologies
 Technologies used for this project:
