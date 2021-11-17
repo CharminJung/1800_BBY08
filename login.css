@@ -5,9 +5,12 @@ body {
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
+  position: relative;
+  top: 150px;
+  bottom: 200px;
   margin: auto;
-  max-width: 320px;
-  height: 320px;
+  max-width: 400px;
+  height: auto;
   border: 5px solid #9C9C9C;
   background-color: #EAEAEA;
 }
@@ -16,4 +19,16 @@ body {
 }
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
+}
+
+.button {
+  transition-duration: 0.4s;
+  margin-left: 40%;
+  margin-top: 8%;
+    }
+      
+.button:hover {
+  background-color: #17a2b0;
+  color: white;
+      
 }
