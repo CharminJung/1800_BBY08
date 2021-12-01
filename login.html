@@ -60,7 +60,7 @@
                                 email: user.email                          
                             }).then(function () {
                                 console.log("New user added to firestore");
-                                window.location.assign("mainGallery.html");       
+                                window.location.assign("Gallery.html");       
                             })
                             .catch(function (error) {
                                 console.log("Error adding new user: " + error);
@@ -76,7 +76,7 @@
   },
   
   signInFlow: 'popup',
-  signInSuccessUrl: 'mainGallery.html',
+  signInSuccessUrl: 'Gallery.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
