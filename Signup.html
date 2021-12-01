@@ -1,87 +1,165 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <title>myER</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="Signup.css">
+    <link rel="stylesheet" type="text/css" href="Signup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+    <script src="./scripts/firebaseAPI_BBY-08.js"></script>
+
+</head>
 
 
-    <body>
-        <!--------Nav Bar------->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">myER</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="home" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="myER.html">Login/Signup</a>
-                        </li>
-    
-    
-                    </ul>
-                </div>
+<body>
+    <!--------Nav Bar------->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">myER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="home" href="Main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login/Signup</a>
+                    </li>
+                </ul>
             </div>
-        </nav>    
+        </div>
+    </nav>
 
-        <!--Signup in screen-->
-        <div id="Signup">
-            <div class="container">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <form id="login-form" class="form" action="" method="post">
-                                <h3 class="text-center text-info">Signup</h3>
-                                <div class="form-group">
-                                    <label for="name" class="text-info">Full Name:</label><br>
-                                    <input type="text" name="name" id="name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="age" class="text-info">Age:</label><br>
-                                    <input type="text" name="age" id="age" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender" class="text-info">Gender:</label><br>
-                                    <input type="text" name="gender" id="gender" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="text-info">Email:</label><br>
-                                    <input type="text" name="email" id="email" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="username" class="text-info">Username:</label><br>
-                                    <input type="text" name="username" id="username" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="text-info">Password:</label><br>
-                                    <input type="text" name="password" id="password" class="form-control">
-                                </div>
-                                
-                                    <button type="button" class="button">Submit</button>
-                                
-                                
-                                
-                            </form>
-        <!--Bottom Bar-->
-         <footer class="navbar justify-content-evenly bg-info fixed-bottom">
-            <i class="material-icons">home</i>
-            <i class="material-icons">check</i>
-            <i class="material-icons">more</i>
-                  </footer>
+    <!--Signup in screen-->
+    <div id="Signup">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <fieldset class="mb-3" id="personalInfoFields" disabled>
+                            <h3 class="text-center text-info">Signup</h3>
+                            <div class="form-group">
+                            <label for="name" class="text-info">Full Name:</label><br>
+                                    <input type="text" name="name" id="nameInput" class="form-control">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="age" class="text-info">Age:</label><br>
+                                <input type="text" name="age" id="ageInput" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender" class="text-info">Gender:</label><br>
+                                <input type="text" name="gender" id="genderInput" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email:</label><br>
+                                <input type="text" name="email" id="emailInput" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="unameInput" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="passwordInput" class="form-control">
+                            </div>
+                        </fieldset>    
+                            <div class="d-flex p-2 bd-highlight">
+                                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                                <span style="width: 11px"></span>
+                                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                                <span style="width: 11px"></span>
+                                <button type="button" class="btn btn-dark"><a href="login.html">Submit</a></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-    </body>
+        </div>
+    </div>
+    <script>
+        var currentUser
+        function populateInfo() {
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    currentUser = db.collection("users").doc(user.uid)
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get the data fields of the user
+                            var userName = userDoc.data().name;
+                            var userAge = userDoc.data().age;
+                            var userGender = userDoc.data().gender;
+                            var userEmail = userDoc.data().email;
+                            var userUname = userDoc.data().uname;
+                            var userPass = userDoc.data().pass;
+
+                            //if the data fields are not empty, then write them in to the form.
+                            if (userName != null) {
+                                document.getElementById("nameInput").value = userName;
+                            }
+                            if (userAge != null) {
+                                document.getElementById("ageInput").value = userAge;
+                            }
+                            if (userGender != null) {
+                                document.getElementById("genderInput").value = userGender;
+                            }
+                            if (userEmail != null) {
+                                document.getElementById("emailInput").value = userEmail;
+                            }
+                            if (userUname != null) {
+                                document.getElementById("unameInput").value = userUname;
+                            }
+                            if (userPass != null) {
+                                document.getElementById("passwordInput").value = userPass;
+                            }
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("No user is signed in");
+                }
+            });
+        }
+
+        //call the function to run it 
+        populateInfo();
+
+        function editUserInfo() {
+            //Enable the form fields
+            document.getElementById("personalInfoFields").disabled = false;
+        }
+        function saveUserInfo() {
+            userName = document.getElementById('nameInput').value;
+            userAge = document.getElementById('ageInput').value;
+            userGender = document.getElementById('genderInput').value;
+            userEmail = document.getElementById('emailInput').value;
+            userUname = document.getElementById('unameInput').value;
+            userPass = document.getElementById('passwordInput').value;
+            currentUser.update({
+                name: userName,
+                age: userAge,
+                gender: userGender,
+                email: userEmail,
+                uname: userUname,
+                pass: userPass,
+            })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                })
+
+            document.getElementById('personalInfoFields').disabled = true;
+        }
+    </script>
+</body>
+
 </html>
